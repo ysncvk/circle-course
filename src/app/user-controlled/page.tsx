@@ -88,6 +88,7 @@ export default function UserControlled() {
             size="small"
             variant="contained"
             sx={{ textTransform: "none" }}
+            onClick={handleGetAppId}
           >
             Get App Id
           </Button>
@@ -101,6 +102,7 @@ export default function UserControlled() {
             size="small"
             variant="contained"
             sx={{ textTransform: "none" }}
+            onClick={handleCreateUser}
           >
             Create User
           </Button>
@@ -113,6 +115,7 @@ export default function UserControlled() {
             size="small"
             variant="contained"
             sx={{ textTransform: "none" }}
+            onClick={handleGetSessionToken}
           >
             Get Session Token
           </Button>
@@ -130,6 +133,7 @@ export default function UserControlled() {
             size="small"
             variant="contained"
             sx={{ textTransform: "none" }}
+            onClick={handleGetChallengeId}
           >
             Get Challenge ID
           </Button>
@@ -143,6 +147,7 @@ export default function UserControlled() {
             size="small"
             variant="contained"
             sx={{ textTransform: "none" }}
+            onClick={handleGetUserWallet}
           >
             Create Wallet
           </Button>
