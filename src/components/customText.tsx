@@ -21,14 +21,14 @@ export default function CustomText({ text }: Props) {
   return (
     <Box
       display="flex"
-      alignItems="left"
+      alignItems="center"
       borderRadius={3}
       border="solid"
       borderColor="aliceblue"
       padding={1}
     >
       <Typography
-        variant="caption"
+        variant="body2"
         sx={{
           minWidth: 300,
           flexGrow: 1,

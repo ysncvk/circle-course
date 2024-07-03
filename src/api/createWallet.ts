@@ -1,17 +1,23 @@
 import { W3SSdk } from "@circle-fin/w3s-pw-web-sdk";
 
-export const create_wallet = () => {
-  const sdk = new W3SSdk();
+let sdk: W3SSdk;
+
+export const create_wallet = async () => {
+  sdk = new W3SSdk();
+  console.log(sdk);
+
   console.log("created the sdk");
   const challengeId = process.env.NEXT_PUBLIC_CHALLENGE_ID || "";
 
   sdk.setAppSettings({
     appId: process.env.NEXT_PUBLIC_APP_ID || "",
   });
+
+  console.log(sdk);
   console.log("set the app settings");
   sdk.setAuthentication({
     userToken: process.env.NEXT_PUBLIC_USER_TOKEN || "",
-    encryptionKey: process.env.NEXT_PUBLIC_ENCRYPTION_KEY || "",
+    encryptionKey: "n35iol9izs1nRhOXUWadfFgoXIom0RPAMdJ0+26KxMI=",
   });
   console.log("set the authentication");
 
@@ -30,4 +36,6 @@ export const create_wallet = () => {
     console.log(`Challenge: ${result?.type}`);
     console.log(`status: ${result?.status}`);
   });
+
+  return "wallet has benn created....";
 };

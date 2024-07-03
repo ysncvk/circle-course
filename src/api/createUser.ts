@@ -19,9 +19,10 @@ export const create_a_new_user = async () => {
     };
 
     const response = await axios.request(options);
+    console.log(response);
     return {
       userId: userId,
-      status: response.request.status,
+      status: response.data.data.status,
     };
   } catch (error) {
     console.error(error);

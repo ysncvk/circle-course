@@ -8,9 +8,10 @@ import { get_app_id } from "@/api/appId";
 import { create_a_new_user } from "@/api/createUser";
 import { acquire_session_token } from "@/api/getToken";
 import { initialize_user } from "@/api/initializeUser";
-import { create_wallet } from "@/api/createWallet";
+
 import { getUserWallet } from "@/api/getUserWallet";
 import { get_wallet_balance } from "@/api/walletBalance";
+import { create_wallet } from "@/api/createWallet";
 
 export default function UserControlled() {
   const [appId, setAppId] = useState("the app id will appear here");
@@ -94,10 +95,11 @@ export default function UserControlled() {
           </Button>
         </Stack>
 
-        <CustomText text={process.env.NEXT_PUBLIC_APP_ID || appId} />
+        <CustomText text={appId} />
 
         <Stack direction="row" justifyContent="space-between" alignItems="end">
           <Typography>User Id:</Typography>
+          <Typography>{user?.status}</Typography>
           <Button
             size="small"
             variant="contained"
@@ -107,7 +109,7 @@ export default function UserControlled() {
             Create User
           </Button>
         </Stack>
-        <CustomText text={process.env.NEXT_PUBLIC_USER_ID || user.userId} />
+        <CustomText text={user.userId} />
 
         <Stack direction="row" justifyContent="space-between" alignItems="end">
           <Typography>User Token & Encrption Key</Typography>
@@ -120,12 +122,8 @@ export default function UserControlled() {
             Get Session Token
           </Button>
         </Stack>
-        <CustomText
-          text={process.env.NEXT_PUBLIC_USER_TOKEN || token.userToken}
-        />
-        <CustomText
-          text={process.env.NEXT_PUBLIC_ENCRYPTION_KEY || token.encryptionKey}
-        />
+        <CustomText text={token?.userToken} />
+        <CustomText text={token?.encryptionKey} />
 
         <Stack direction="row" justifyContent="space-between" alignItems="end">
           <Typography>Challenge ID:</Typography>
@@ -138,16 +136,14 @@ export default function UserControlled() {
             Get Challenge ID
           </Button>
         </Stack>
-        <CustomText
-          text={process.env.NEXT_PUBLIC_CHALLENGE_ID || challengeId}
-        />
+        <CustomText text={challengeId} />
         <Stack direction="row" justifyContent="space-between" alignItems="end">
           <Typography>Wallet ID:</Typography>
           <Button
             size="small"
             variant="contained"
             sx={{ textTransform: "none" }}
-            onClick={handleGetUserWallet}
+            onClick={handleCreatWallet}
           >
             Create Wallet
           </Button>
