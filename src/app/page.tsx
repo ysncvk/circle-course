@@ -1,4 +1,3 @@
-import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
 
@@ -8,28 +7,16 @@ export default function Home() {
       <div className={styles.grid}>
         <Link href="/user-controlled" className={styles.card}>
           <h2>
-            User Controlled Wallets <span>-&gt;</span>
+            Bilgileri Topla <span>-&gt;</span>
           </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
+          <p>Circle servisleri ile ilgili biligleri nasıl toplayacağız?</p>
         </Link>
-        <a href="/user-controlled" className={styles.card}>
-          <h2>
-            User Controlled Wallets <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Link href="/create-wallet" className={styles.card}>
           <h2>
-            Developer Controlled Wallets<span>-&gt;</span>
+            Create User-Controlled wallet<span>-&gt;</span>
           </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+        </Link>
 
         <a
           href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"

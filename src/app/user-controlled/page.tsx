@@ -9,10 +9,6 @@ import { create_a_new_user } from "@/api/createUser";
 import { acquire_session_token } from "@/api/getToken";
 import { initialize_user } from "@/api/initializeUser";
 
-import { getUserWallet } from "@/api/getUserWallet";
-import { get_wallet_balance } from "@/api/walletBalance";
-import { create_wallet } from "@/api/createWallet";
-
 export default function UserControlled() {
   const [appId, setAppId] = useState("the app id will appear here");
   const [user, setUser] = useState<any>({
@@ -26,15 +22,6 @@ export default function UserControlled() {
   const [challengeId, setChallengeId] = useState(
     "the challenge Id will appear here"
   );
-  const [walletResult, setWalletResult] = useState(
-    "wallet has not been created yet...!"
-  );
-
-  const [walletBalance, setWalletBalance] = useState(
-    "your wallet balance will appear here"
-  );
-
-  const [walletId, setWalletId] = useState("your wallet Id will appear here");
 
   const handleGetAppId = async () => {
     const id = await get_app_id();
@@ -53,22 +40,6 @@ export default function UserControlled() {
   const handleGetChallengeId = async () => {
     const challengeId = await initialize_user();
     setChallengeId(challengeId);
-  };
-
-  const handleGetUserWallet = async () => {
-    const wallet = await getUserWallet();
-    setWalletId(wallet?.data.data.wallets[0].id);
-  };
-
-  const handleCreatWallet = () => {
-    const wallet = create_wallet();
-    setWalletResult("wallet is created... congrulations...:)");
-    console.log("wallet", wallet);
-  };
-
-  const handleGetWalletBalance = async () => {
-    const balance = await get_wallet_balance();
-    setWalletBalance(balance);
   };
 
   return (
@@ -137,18 +108,6 @@ export default function UserControlled() {
           </Button>
         </Stack>
         <CustomText text={challengeId} />
-        <Stack direction="row" justifyContent="space-between" alignItems="end">
-          <Typography>Wallet ID:</Typography>
-          <Button
-            size="small"
-            variant="contained"
-            sx={{ textTransform: "none" }}
-            onClick={handleCreatWallet}
-          >
-            Create Wallet
-          </Button>
-        </Stack>
-        <CustomText text={process.env.NEXT_PUBLIC_WALLET_ID || walletId} />
       </Stack>
     </Container>
   );

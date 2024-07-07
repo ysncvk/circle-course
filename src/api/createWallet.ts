@@ -1,9 +1,16 @@
+"use client";
+
 import { W3SSdk } from "@circle-fin/w3s-pw-web-sdk";
+("use client");
+
+import { useEffect } from "react";
 
 let sdk: W3SSdk;
 
 export const create_wallet = async () => {
-  sdk = new W3SSdk();
+  useEffect(() => {
+    sdk = new W3SSdk();
+  }, []);
   console.log(sdk);
 
   console.log("created the sdk");
@@ -17,7 +24,7 @@ export const create_wallet = async () => {
   console.log("set the app settings");
   sdk.setAuthentication({
     userToken: process.env.NEXT_PUBLIC_USER_TOKEN || "",
-    encryptionKey: "n35iol9izs1nRhOXUWadfFgoXIom0RPAMdJ0+26KxMI=",
+    encryptionKey: process.env.NEXT_PUBLIC_ENCRYPTION_KEY || "",
   });
   console.log("set the authentication");
 

@@ -1,4 +1,5 @@
 "use server";
+
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 
@@ -18,9 +19,11 @@ export const initialize_user = async () => {
     };
 
     const response = await axios.request(options);
-    console.log(response);
+    console.log("cevap:", response);
+    console.log("yasin süoer");
     return response.data.data.challengeId;
   } catch (error) {
     console.error(error);
+    console.log("yasin süoer");
   }
 };
