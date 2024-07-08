@@ -6,9 +6,10 @@ import { useSnackbar } from "./snackbar";
 
 type Props = {
   text: string;
+  font?: any;
 };
 
-export default function CustomText({ text }: Props) {
+export default function CustomText({ text, font = "body2" }: Props) {
   const { enqueueSnackbar } = useSnackbar();
   const copyToClipboard = async () => {
     try {
@@ -28,7 +29,7 @@ export default function CustomText({ text }: Props) {
       padding={1}
     >
       <Typography
-        variant="body2"
+        variant={font}
         sx={{
           minWidth: 300,
           flexGrow: 1,

@@ -7,14 +7,19 @@ export default function Home() {
       <div className={styles.grid}>
         <Link href="/user-controlled" className={styles.card}>
           <h2>
-            Bilgileri Topla <span>-&gt;</span>
+            Initilaize User<span>-&gt;</span>
           </h2>
-          <p>Circle servisleri ile ilgili biligleri nasıl toplayacağız?</p>
         </Link>
 
         <Link href="/create-wallet" className={styles.card}>
           <h2>
             Create User-Controlled wallet<span>-&gt;</span>
+          </h2>
+        </Link>
+
+        <Link href="/wallet-ops" className={styles.card}>
+          <h2>
+            Wallet Operations<span>-&gt;</span>
           </h2>
         </Link>
 

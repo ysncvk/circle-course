@@ -1,6 +1,6 @@
 "use client";
 
-import CustomText from "@/components/customText";
+import Text from "@/components/text";
 import { W3SSdk } from "@circle-fin/w3s-pw-web-sdk";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -79,30 +79,28 @@ export default function CreateWallet() {
       <Stack direction="column" alignItems="left" paddingTop={3} gap={2}>
         <Typography>App Id:</Typography>
 
-        <CustomText text={process.env.NEXT_PUBLIC_APP_ID || ""} />
+        <Text text={process.env.NEXT_PUBLIC_APP_ID || ""} />
 
         <Typography>User Token:</Typography>
 
-        <CustomText text={process.env.NEXT_PUBLIC_USER_TOKEN || ""} />
+        <Text text={process.env.NEXT_PUBLIC_USER_TOKEN || ""} />
 
         <Typography>Encrption Key:</Typography>
-        <CustomText text={process.env.NEXT_PUBLIC_ENCRYPTION_KEY || ""} />
+        <Text text={process.env.NEXT_PUBLIC_ENCRYPTION_KEY || ""} />
 
         <Typography>Challenge ID:</Typography>
 
-        <CustomText text={process.env.NEXT_PUBLIC_CHALLENGE_ID || ""} />
-        <Stack direction="row" justifyContent="space-between" alignItems="end">
-          <Typography>Wallet ID:</Typography>
-          <LoadingButton
-            size="small"
-            variant="contained"
-            sx={{ textTransform: "none" }}
-            onClick={handleCreatWallet}
-            loading={loading}
-          >
-            Create Wallet
-          </LoadingButton>
-        </Stack>
+        <Text text={process.env.NEXT_PUBLIC_CHALLENGE_ID || ""} />
+
+        <LoadingButton
+          size="small"
+          variant="contained"
+          sx={{ textTransform: "none" }}
+          onClick={handleCreatWallet}
+          loading={loading}
+        >
+          Create Wallet
+        </LoadingButton>
       </Stack>
     </Container>
   );
