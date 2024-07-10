@@ -1,5 +1,6 @@
 "use client";
 
+import { transfer } from "@/api/transfer";
 import CustomText from "@/components/customText";
 import TextData from "@/components/text";
 import { Button } from "@mui/material";
@@ -48,6 +49,14 @@ export default function WalletOps() {
       setBalance(response.data.data.tokenBalances[1]?.amount || 0);
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  const transferToken = async () => {
+    try {
+      const result = await transfer();
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -114,6 +123,14 @@ export default function WalletOps() {
           <Typography>Balance:</Typography>
           <CustomText text={balance} />
         </Stack>
+
+        <Button
+          variant="contained"
+          sx={{ textTransform: "none" }}
+          onClick={transferToken}
+        >
+          Transfer
+        </Button>
       </Stack>
     </Container>
   );

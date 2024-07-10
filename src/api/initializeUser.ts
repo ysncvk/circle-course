@@ -19,11 +19,10 @@ export const initialize_user = async () => {
     };
 
     const response = await axios.request(options);
-    console.log("cevap:", response);
-    console.log("yasin süoer");
+    console.log("response:", response);
+
     return response.data.data.challengeId;
   } catch (error) {
     console.error(error);
-    console.log("yasin süoer");
   }
 };

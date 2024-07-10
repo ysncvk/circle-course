@@ -80,7 +80,7 @@ export default function UserControlled() {
             Create User
           </Button>
         </Stack>
-        <CustomText text={user.userId} />
+        <CustomText text={user?.userId} />
 
         <Stack direction="row" justifyContent="space-between" alignItems="end">
           <Typography>User Token & Encrption Key</Typography>
