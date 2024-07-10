@@ -15,7 +15,11 @@ export const initialize_user = async () => {
         Authorization: `Bearer  ${process.env.NEXT_PUBLIC_API_KEY}`,
         "X-User-Token": `${process.env.NEXT_PUBLIC_USER_TOKEN}`,
       },
-      data: { idempotencyKey: idempotencyKey, blockchains: ["MATIC-AMOY"] },
+      data: {
+        idempotencyKey: idempotencyKey,
+        accountType: "SCA",
+        blockchains: ["MATIC-AMOY"],
+      },
     };
 
     const response = await axios.request(options);
