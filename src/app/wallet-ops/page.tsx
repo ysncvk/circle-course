@@ -9,6 +9,7 @@ import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import axios from "axios";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function WalletOps() {
@@ -55,6 +56,7 @@ export default function WalletOps() {
   const transferToken = async () => {
     try {
       const result = await transfer();
+      console.log(result);
     } catch (error) {
       console.log(error);
     }
@@ -131,6 +133,20 @@ export default function WalletOps() {
         >
           Transfer
         </Button>
+
+        <Box
+          sx={{ backgroundColor: "#8e44ad" }}
+          borderRadius={3}
+          padding={1}
+          textAlign="center"
+          marginTop={3}
+        >
+          <Link href="/">
+            <h2>
+              Go to home page<span>-&gt;</span>
+            </h2>
+          </Link>
+        </Box>
       </Stack>
     </Container>
   );

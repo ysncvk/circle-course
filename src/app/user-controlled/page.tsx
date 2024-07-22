@@ -8,6 +8,7 @@ import { get_app_id } from "@/api/appId";
 import { create_a_new_user } from "@/api/createUser";
 import { acquire_session_token } from "@/api/getToken";
 import { initialize_user } from "@/api/initializeUser";
+import Link from "next/link";
 
 export default function UserControlled() {
   const [appId, setAppId] = useState("the app id will appear here");
@@ -108,6 +109,19 @@ export default function UserControlled() {
           </Button>
         </Stack>
         <CustomText text={challengeId} />
+        <Box
+          sx={{ backgroundColor: "#8e44ad" }}
+          borderRadius={3}
+          padding={1}
+          textAlign="center"
+          marginTop={3}
+        >
+          <Link href="/">
+            <h2>
+              Go to home page<span>-&gt;</span>
+            </h2>
+          </Link>
+        </Box>
       </Stack>
     </Container>
   );

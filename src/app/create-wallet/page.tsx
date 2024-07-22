@@ -8,6 +8,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 import { LoadingButton } from "@mui/lab";
+import Link from "next/link";
 
 let sdk: W3SSdk;
 
@@ -18,9 +19,6 @@ export default function CreateWallet() {
     "wallet has not been created yet...!"
   );
 
-  const [walletBalance, setWalletBalance] = useState(
-    "your wallet balance will appear here"
-  );
   const handleCreatWallet = () => {
     setLoading(false);
     console.log(sdk);
@@ -101,6 +99,22 @@ export default function CreateWallet() {
         >
           Create Wallet
         </LoadingButton>
+
+        <Text text={walletResult} />
+
+        <Box
+          sx={{ backgroundColor: "#8e44ad" }}
+          borderRadius={3}
+          padding={1}
+          textAlign="center"
+          marginTop={3}
+        >
+          <Link href="/">
+            <h2>
+              Go to home page<span>-&gt;</span>
+            </h2>
+          </Link>
+        </Box>
       </Stack>
     </Container>
   );

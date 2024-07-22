@@ -1,13 +1,24 @@
+import Box from "@mui/material/Box";
 import styles from "./page.module.css";
 import Link from "next/link";
+import { Typography } from "@mui/material";
 
 export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.grid}>
+        <Box
+          sx={{ backgroundColor: "#8e44ad" }}
+          borderRadius={3}
+          padding={1}
+          textAlign="center"
+          marginTop={3}
+        >
+          <Typography variant="h5">Circle Course</Typography>
+        </Box>
         <Link href="/user-controlled" className={styles.card}>
           <h2>
-            Initilaize User<span>-&gt;</span>
+            Gather info and Initilaize User<span>-&gt;</span>
           </h2>
         </Link>
 
@@ -22,32 +33,6 @@ export default function Home() {
             Wallet Operations<span>-&gt;</span>
           </h2>
         </Link>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Gas Station <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            CCTP <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
       </div>
     </main>
   );
